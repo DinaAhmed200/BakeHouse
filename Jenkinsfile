@@ -14,8 +14,8 @@ pipeline {
                         withCredentials([usernamePassword(credentialsId: 'iti-sys-admin-mnf-docker-cred', usernameVariable: 'USERNAME_SYSADMIN', passwordVariable: 'PASSWORD_SYSADMIN')]) {
                             sh '''
                                 docker login -u ${USERNAME_SYSADMIN} -p ${PASSWORD_SYSADMIN}
-                                docker build -t docker push dina3/iti:v${BUILD_NUMBER} .
-                                docker push docker push dina3/iti:v${BUILD_NUMBER}
+                                docker build -t docker  dina3/iti:v${BUILD_NUMBER} .
+                                docker push   dina3/iti:v${BUILD_NUMBER}
                                 echo ${BUILD_NUMBER} > ../build_num.txt
                                 echo ${ENV_ITI}
                             '''
